@@ -12,14 +12,14 @@ class AlertPage extends StatelessWidget {
       body: Center(
           child: ElevatedButton(
         onPressed: () => _mostrarAlert(context),
-        child: Text('Mostrar alerta'),
         style: TextButton.styleFrom(
           backgroundColor: Colors.red,
           //textStyle: TextStyle(color: Colors.blue) // foreground
         ),
+        child: const Text('Mostrar alerta'),
       )),
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add_location),
+          child: const Icon(Icons.add_location),
           onPressed: () {
             Navigator.pop(context);
           }),
@@ -33,21 +33,21 @@ class AlertPage extends StatelessWidget {
         builder: (context) {
           return AlertDialog(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-            title: Text('Titulo'),
+            title: const Text('Titulo'),
             content: Column(
               mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
+              children: const <Widget>[
                 Text('Esto es un mensaje'),
                 FlutterLogo(size: 50.0,)
               ],
             ),
             actions: <Widget>[
                TextButton(
-                 child: Text('cancelar'),
+                 child: const Text('cancelar'),
                  onPressed: ()  => Navigator.of(context).pop(),
                ),
                TextButton(
-                 child: Text('OK'),
+                 child: const Text('OK'),
                  onPressed: ()  => Navigator.of(context).pop(),
                )
             ],

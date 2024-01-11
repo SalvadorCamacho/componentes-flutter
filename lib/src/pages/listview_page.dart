@@ -10,8 +10,8 @@ class ListaPage extends StatefulWidget {
 }
 
 class _ListaPageState extends State<ListaPage> {
-  List<int> _listaNumeros = [];
-  ScrollController _scrollController = ScrollController();
+  final List<int> _listaNumeros = [];
+  final ScrollController _scrollController = ScrollController();
   int _ultimoIem = 0;
   bool _isLoading = false;
 

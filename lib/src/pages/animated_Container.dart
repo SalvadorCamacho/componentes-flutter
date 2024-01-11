@@ -17,18 +17,18 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
   int _g = 0;
   int _b = 0;
 
-  BorderRadiusGeometry _borderRadus = BorderRadius.circular(8.0);
+  final BorderRadiusGeometry _borderRadus = BorderRadius.circular(8.0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animated Container'),
+        title: const Text('Animated Container'),
       ),
 
       body: Center(
         child: AnimatedContainer(
-            duration: Duration(seconds: 1),
+            duration: const Duration(seconds: 1),
             curve: Curves.fastOutSlowIn,
             width: _width,
             height: _height,
@@ -61,7 +61,7 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: _cambiarForma,
-        child: Icon(Icons.play_arrow),
+        child: const Icon(Icons.play_arrow),
       ),
     );
   }

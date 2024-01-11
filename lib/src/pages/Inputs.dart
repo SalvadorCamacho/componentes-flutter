@@ -13,9 +13,9 @@ class _InputPageState extends State<InputPage> {
   String _email = '';
   String _password = '';
   String _fecha = '';
-  TextEditingController _controlFecha = TextEditingController();
+  final TextEditingController _controlFecha = TextEditingController();
 
-  List<String> _poderes = [
+  final List<String> _poderes = [
     'volar',
     'Rayos x',
     'Super aliento',
@@ -28,21 +28,21 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Inputs de texto'),
+          title: const Text('Inputs de texto'),
         ),
         body: ListView(
-          padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
           children: <Widget>[
             _crearInput(),
-            Divider(),
+            const Divider(),
             _crearEmail(),
-            Divider(),
+            const Divider(),
             _crearPassword(),
-            Divider(),
+            const Divider(),
             _crearFecha(context),
-            Divider(),
+            const Divider(),
             _crearDropDown(context),
-            Divider(),
+            const Divider(),
             _crearPersona(),
             _mostrarPassword(),
           ],
@@ -58,8 +58,8 @@ class _InputPageState extends State<InputPage> {
             counter: Text('Letras ${_nombre.length}'),
             hintText: 'Escribe tu nombre',
             labelText: 'Nombre',
-            suffixIcon: Icon(Icons.accessibility),
-            icon: Icon(Icons.account_circle)),
+            suffixIcon: const Icon(Icons.accessibility),
+            icon: const Icon(Icons.account_circle)),
         onChanged: (valor) {
           setState(() {
             _nombre = valor;
@@ -84,8 +84,8 @@ class _InputPageState extends State<InputPage> {
             counter: Text('Letras ${_email.length}'),
             hintText: 'Email',
             labelText: 'Escribe tu correo electrónico',
-            suffixIcon: Icon(Icons.alternate_email),
-            icon: Icon(Icons.email)),
+            suffixIcon: const Icon(Icons.alternate_email),
+            icon: const Icon(Icons.email)),
         onChanged: (valor) => setState(() {
               _email = valor;
             }));
@@ -100,8 +100,8 @@ class _InputPageState extends State<InputPage> {
             counter: Text('Letras ${_password.length}'),
             hintText: 'Password',
             labelText: 'Escribe una contraseña',
-            suffixIcon: Icon(Icons.lock_open),
-            icon: Icon(Icons.lock)),
+            suffixIcon: const Icon(Icons.lock_open),
+            icon: const Icon(Icons.lock)),
         onChanged: (valor) => setState(() {
               _password = valor;
             }));
@@ -122,8 +122,8 @@ class _InputPageState extends State<InputPage> {
                 OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
             hintText: 'Fecha de nacimiento',
             labelText: 'Escribe la fecha de nacimiento',
-            suffixIcon: Icon(Icons.perm_contact_calendar),
-            icon: Icon(Icons.calendar_today)),
+            suffixIcon: const Icon(Icons.perm_contact_calendar),
+            icon: const Icon(Icons.calendar_today)),
         onTap: () {
           FocusScope.of(context).requestFocus(FocusNode());
           _selectDate(context);
@@ -136,14 +136,10 @@ class _InputPageState extends State<InputPage> {
         initialDate: DateTime.now(),
         firstDate: DateTime(2018),
         lastDate: DateTime(2050),
-        locale: Locale("es", "ES"));
+        locale: const Locale("es", "ES"));
     if (picked != null) {
       setState(() {
-        _fecha = DateFormat.d().format(picked) +
-            "/" +
-            DateFormat.M().format(picked) +
-            "/" +
-            DateFormat.y().format(picked);
+        _fecha = "${DateFormat.d().format(picked)}/${DateFormat.M().format(picked)}/${DateFormat.y().format(picked)}";
         // _fecha = DateFormat.yMd().format(picked);
         _controlFecha.text = _fecha;
       });
@@ -152,20 +148,20 @@ class _InputPageState extends State<InputPage> {
 
   List<DropdownMenuItem<String>> getOpcionesDropdonw() {
     List<DropdownMenuItem<String>> lista = [];
-    _poderes.forEach((poder) {
+    for (var poder in _poderes) {
       lista.add(DropdownMenuItem(
-        child: Text(poder),
         value: poder,
+        child: Text(poder),
       ));
-    });
+    }
     return lista;
   }
 
   Widget _crearDropDown(BuildContext context) {
     return Row(
       children: <Widget>[
-        Icon(Icons.select_all),
-        SizedBox(width: 30.0),
+        const Icon(Icons.select_all),
+        const SizedBox(width: 30.0),
         Expanded(
          child:DropdownButton(
            value: _opcionSeleccionada,

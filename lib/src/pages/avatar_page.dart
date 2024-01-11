@@ -10,21 +10,21 @@ class AvatarPage extends StatelessWidget {
         title: const Text('Avatar Page'),
         actions: <Widget>[
           Container(
-              margin: EdgeInsets.only(right: 10.0),
-              child: CircleAvatar(
+              margin: const EdgeInsets.only(right: 10.0),
+              child: const CircleAvatar(
                 backgroundImage: NetworkImage(
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr_IULLOXJT80cLu-eRqkRGrHY23yLEx4p0w&usqp=CAU'),
                 radius: 25.0,
               )),
           Container(
-              margin: EdgeInsets.only(right: 10.0),
-              child: CircleAvatar(
-                child: Text('SC'),
+              margin: const EdgeInsets.only(right: 10.0),
+              child: const CircleAvatar(
                 backgroundColor: Colors.brown,
+                child: Text('SC'),
               ))
         ],
       ),
-      body: Center(
+      body: const Center(
         child: FadeInImage(
           placeholder: AssetImage('assets/jar-loading.gif'),
           image: NetworkImage(
